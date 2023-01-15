@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="Zustandsautomat" Id="{06aab81e-e47c-4303-86d6-ad89b6118069}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Zustandsautomat
+VAR CONSTANT
+	MaxProducts	: UINT := 5;
+END_VAR
+VAR_INPUT
+  Button           : BOOL;
+  InsertCoin       : BOOL;
+  TakeProduct      : BOOL;
+  TakeCoin         : BOOL;
+END_VAR
+VAR_OUTPUT
+  State            : States;
+  Products         : UINT := MaxProducts;
+END_VAR
+VAR
+  trigButton         : R_TRIG;
+  trigInsertCoin     : R_TRIG;
+  trigTakeProduct    : R_TRIG;
+  trigTakeCoin       : R_TRIG;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[trigButton(CLK := Button);
+trigInsertCoin(CLK := InsertCoin);
+trigTakeProduct(CLK := TakeProduct);
+trigTakeCoin(CLK := TakeCoin);
+ 
+CASE State OF
+  States.Waiting:
+    IF (trigButton.Q) THEN
+      ; // keep in the state
+    END_IF
+    IF (trigInsertCoin.Q) THEN
+      ADSLOGSTR(ADSLOG_MSGTYPE_HINT, 'Customer has insert a coin.', '');
+      State := States.HasCoin;
+    END_IF
+ 
+  States.HasCoin:
+    IF (trigButton.Q) THEN
+      IF (Products > 0) THEN
+        Products := Products - 1;
+        ADSLOGSTR(ADSLOG_MSGTYPE_HINT, 'Customer has pressed the button. Output product.', '');
+        State := States.ProductEjected;
+      ELSE
+        ADSLOGSTR(ADSLOG_MSGTYPE_HINT, 'Customer has pressed the button. No more products. Return coin.', '');
+        State := States.CoinEjected;
+      END_IF
+    END_IF
+ 
+  States.ProductEjected:
+    IF (trigTakeProduct.Q) THEN
+      ADSLOGSTR(ADSLOG_MSGTYPE_HINT, 'Customer has taken the product.', '');
+      State := States.Waiting;
+    END_IF
+ 
+  States.CoinEjected:
+    IF (trigTakeCoin.Q) THEN
+      ADSLOGSTR(ADSLOG_MSGTYPE_HINT, 'Customer has taken the coin.', '');
+      State := States.Waiting;
+    END_IF
+ 
+  ELSE
+    ADSLOGSTR(ADSLOG_MSGTYPE_ERROR, 'Invalid state', '');
+    State := States.Waiting;
+END_CASE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -23,10 +23,19 @@
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Zustandsautomat\DUTs\States.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Zustandsautomat\POU\Zustandsautomat.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
+    <Folder Include="POUs\Zustandsautomat" />
+    <Folder Include="POUs\Zustandsautomat\DUTs" />
+    <Folder Include="POUs\Zustandsautomat\POU" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
   </ItemGroup>
