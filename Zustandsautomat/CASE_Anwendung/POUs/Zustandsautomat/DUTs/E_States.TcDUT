@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
-  <DUT Name="States" Id="{dc88566f-2d51-4930-b010-ad814213063f}">
+  <DUT Name="E_States" Id="{dc88566f-2d51-4930-b010-ad814213063f}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 {attribute 'strict'}
 {attribute 'to_string'}
-TYPE States :
+TYPE E_States :
 (
     Waiting := 0,
     HasCoin,

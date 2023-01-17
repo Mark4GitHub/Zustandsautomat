@@ -3,42 +3,11 @@
   <POU Name="MAIN" Id="{8ae3b7d7-24a5-400d-acc1-48a87b859bdb}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	Zustandsautomat1	: Zustandsautomat;
-	Zustandsautomat2	: Zustandsautomat;
-	
-	Automat1Button          : BOOL;
-	Automat1InsertCoin      : BOOL;
-	Automat1TakeProduct     : BOOL;
-	Automat1TakeCoin        : BOOL;
-	Automat1State			: States;
-	Automat1Products		: UINT;
-	
-	Automat2Button          : BOOL;
-	Automat2InsertCoin      : BOOL;
-	Automat2TakeProduct     : BOOL;
-	Automat2TakeCoin        : BOOL;
-	Automat2State			: States;	
-	Automat2Products		: UINT;
+	Zusstandsautomaten	: ControlZustandsautomat;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Zustandsautomat1(
-	Button		:= Automat1Button, 
-	InsertCoin	:= Automat1InsertCoin, 
-	TakeProduct	:= Automat1TakeProduct, 
-	TakeCoin	:= Automat1TakeCoin, 
-	State		=> Automat1State, 
-	Products	=> Automat1Products);
-	
-Zustandsautomat2(
-	Button		:= Automat2Button, 
-	InsertCoin	:= Automat2InsertCoin, 
-	TakeProduct	:= Automat2TakeProduct, 
-	TakeCoin	:= Automat2TakeCoin, 
-	State		=> Automat2State, 
-	Products	=> Automat2Products);
-	
-]]></ST>
+      <ST><![CDATA[Zusstandsautomaten();]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

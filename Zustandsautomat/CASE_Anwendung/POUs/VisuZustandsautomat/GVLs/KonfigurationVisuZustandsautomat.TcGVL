@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <GVL Name="KonfigurationVisuZustandsautomat" Id="{9807997b-2575-4dcb-a75e-ded6d040f81c}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL CONSTANT
+	cMaxZustandsautoamten		: INT := 5;
+END_VAR
+VAR_GLOBAL
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

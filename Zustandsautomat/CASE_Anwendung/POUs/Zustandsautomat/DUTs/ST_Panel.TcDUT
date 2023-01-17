@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <DUT Name="ST_Panel" Id="{41dd766d-599b-4936-8647-4842b7cb5f29}">
+    <Declaration><![CDATA[TYPE ST_Panel :
+STRUCT
+	Name				: STRING(255);
+	InstanzName			: STRING(255);
+	Button				: BOOL;
+	InsertCoin			: BOOL;
+	TakeProduct			: BOOL;
+	TakeCoin			: BOOL;
+	State				: STRING;
+	NumberOfProducts	: UINT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

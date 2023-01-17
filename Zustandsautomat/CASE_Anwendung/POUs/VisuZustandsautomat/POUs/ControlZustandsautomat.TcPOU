@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="ControlZustandsautomat" Id="{c8110797-85b7-4028-a27e-fedd0a5f1535}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK ControlZustandsautomat 
+VAR
+	Zustandsautomat1	: Zustandsautomat;
+	Panel1				: ST_Panel;
+	
+	Zustandsautomat2	: Zustandsautomat;
+	Panel2				: ST_Panel;
+	
+	//VISU
+	InitDone					: BOOL;
+
+
+	nZustandsautomatCount		: INT	:= 0;
+	
+	//Visu
+	VisuSelectedZustandsautomat	: INT := 1;
+	VisuNamenZustandsautomaten	: ARRAY[1..KonfigurationVisuZustandsautomat.cMaxZustandsautoamten] 	OF STRING(255);
+	VisuPanel				: POINTER TO ST_Panel;
+	VisuIpPanel			: ARRAY[1..KonfigurationVisuZustandsautomat.cMaxZustandsautoamten] 	OF POINTER TO ST_Panel;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Zustandsautomat1(
+	Panel		:= Panel1);
+	
+Zustandsautomat2(
+	Panel		:= Panel2);
+	
+Init();
+VISU();
+]]></ST>
+    </Implementation>
+    <Method Name="AddZustandsautomat" Id="{8af8a9a9-5f97-49f0-9d31-e008b7310bd2}">
+      <Declaration><![CDATA[METHOD AddZustandsautomat : BOOL
+VAR_INPUT
+	InterfaceZustandsautomat	: InterfaceVisuZustandsautomat;
+	Name			: STRING(255);
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF nZustandsautomatCount >= 0
+	AND nZustandsautomatCount < KonfigurationVisuZustandsautomat.cMaxZustandsautoamten
+THEN
+	nZustandsautomatCount := nZustandsautomatCount +1;
+	InterfaceZustandsautomat.Prop_Panel^.Name := Name;			
+	VisuIpPanel[nZustandsautomatCount] := InterfaceZustandsautomat.Prop_Panel;
+	VisuNamenZustandsautomaten[nZustandsautomatCount] := Name;
+	AddZustandsautomat := TRUE;
+ELSE
+	AddZustandsautomat := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Init" Id="{134c04a0-acc5-4a57-9011-b1b124550c3a}">
+      <Declaration><![CDATA[METHOD Init : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF NOT InitDone THEN
+	IF NOT AddZustandsautomat(InterfaceZustandsautomat := Zustandsautomat1,Name:='Cola Automat') THEN RETURN; END_IF;
+	IF NOT AddZustandsautomat(InterfaceZustandsautomat := Zustandsautomat2,Name:='Fanta Automat') THEN RETURN; END_IF;
+	InitDone := TRUE;
+END_IF
+
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="VISU" Id="{ee1f4b6c-686e-4fc4-a259-d3c881102d5d}">
+      <Declaration><![CDATA[METHOD VISU : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[VisuPanel		:= VisuIpPanel[VisuSelectedZustandsautomat];]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
