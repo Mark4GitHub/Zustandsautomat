@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="Visu" Id="{3eca0047-93a4-4746-8e3f-235124f0045c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Visu IMPLEMENTS InterfaceVisu
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+
+	//Zustandsautomat
+	nZustandsautomatCount		: INT	:= 0;
+	VisuSelectedZustandsautomat	: INT := 1;
+	VisuNamenZustandsautomaten	: ARRAY[1..KonfigurationVisuZustandsautomat.cMaxZustandsautoamten] 	OF STRING(255);
+	VisuPanel					: POINTER TO ST_Panel;
+	VisuIpPanel					: ARRAY[1..KonfigurationVisuZustandsautomat.cMaxZustandsautoamten] 	OF POINTER TO ST_Panel;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF VisuIpPanel[VisuSelectedZustandsautomat] <> 0 THEN
+	VisuPanel		:= VisuIpPanel[VisuSelectedZustandsautomat];
+END_IF]]></ST>
+    </Implementation>
+    <Method Name="ZustandsautomatAddVisu" Id="{aacc5658-d565-4e6f-8033-320cc22e6411}">
+      <Declaration><![CDATA[METHOD ZustandsautomatAddVisu : BOOL
+VAR_INPUT
+	P_Panel						: POINTER TO ST_Panel;
+	Name						: STRING(255);
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF nZustandsautomatCount >= 0
+	AND nZustandsautomatCount < KonfigurationVisuZustandsautomat.cMaxZustandsautoamten
+THEN
+	nZustandsautomatCount := nZustandsautomatCount +1;
+	P_Panel^.Name := Name;			
+	VisuIpPanel[nZustandsautomatCount] := P_Panel;
+	VisuNamenZustandsautomaten[nZustandsautomatCount] := Name;
+	ZustandsautomatAddVisu := TRUE;
+ELSE
+	ZustandsautomatAddVisu := FALSE;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

@@ -311,11 +311,11 @@
                     </o>
                     <o>
                       <v n="Id">397264524L</v>
-                      <v n="Value">"MAIN.Zusstandsautomaten.VisuSelectedZustandsautomat"</v>
+                      <v n="Value">"MAIN.Visualisierung.VisuSelectedZustandsautomat"</v>
                     </o>
                     <o>
                       <v n="Id">72808681L</v>
-                      <v n="Value">"MAIN.Zusstandsautomaten.VisuNamenZustandsautomaten"</v>
+                      <v n="Value">"MAIN.Visualisierung.VisuNamenZustandsautomaten"</v>
                     </o>
                     <o>
                       <v n="Id">1636615684L</v>
@@ -333,7 +333,7 @@
                           <v>String</v>
                         </a>
                         <a n="ColumnNames" cet="String">
-                          <v>MAIN.Zusstandsautomaten.VisuNamenZustandsautomaten[INDEX]</v>
+                          <v>MAIN.Visualisierung.VisuNamenZustandsautomaten[INDEX]</v>
                         </a>
                         <v n="BaseType">true</v>
                         <a n="Bounds" cet="ArrayBound">
@@ -355,19 +355,19 @@
                     </o>
                     <o>
                       <v n="Id">3854506369L</v>
-                      <v n="Value">"MAIN.Zusstandsautomaten.VisuNamenZustandsautomaten[INDEX]"</v>
+                      <v n="Value">"MAIN.Visualisierung.VisuNamenZustandsautomaten[INDEX]"</v>
                     </o>
                     <o>
                       <v n="Id">2232123230L</v>
-                      <v n="Value">"MAIN.Zusstandsautomaten.arNamenZustandsautomaten[INDEX]"</v>
+                      <v n="Value">"MAIN.Visualisierung.VisuNamenZustandsautomaten[INDEX]"</v>
                     </o>
                     <o>
                       <v n="Id">2685023577L</v>
-                      <v n="Value">"MAIN.Zusstandsautomaten.VisuNamenZustandsautomaten[INDEX]"</v>
+                      <v n="Value">"MAIN.Visualisierung.VisuNamenZustandsautomaten[INDEX]"</v>
                     </o>
                     <o>
                       <v n="Id">4036189354L</v>
-                      <v n="Value" t="Int16">200</v>
+                      <v n="Value" t="Int16">190</v>
                     </o>
                     <o>
                       <v n="Id">3669839856L</v>
@@ -798,7 +798,7 @@
                         <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
                           <o>
                             <v n="Flags">2L</v>
-                            <v n="BasicTypeNodeValue">"MAIN.Zusstandsautomaten.VisuPanel"</v>
+                            <v n="BasicTypeNodeValue">"MAIN.Visualisierung.VisuPanel"</v>
                             <v n="BasicTypeNodeAcceptsExpression">true</v>
                             <n n="BasicTypeNodeFastAccess" />
                             <a n="BasicTypeNodeEnumValues" et="String" />
@@ -858,7 +858,7 @@
                     </o>
                     <o>
                       <v n="Id">251473904L</v>
-                      <v n="Value">"MAIN.Zusstandsautomaten.VisuPanel"</v>
+                      <v n="Value">"MAIN.Visualisierung.VisuPanel"</v>
                     </o>
                   </l>
                 </o>
@@ -964,11 +964,11 @@
                     </o>
                     <o>
                       <v n="Id">1649127785L</v>
-                      <v n="Value">310</v>
+                      <v n="Value">220</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">10</v>
+                      <v n="Value">12</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -1078,8 +1078,8 @@
                                     <l n="TypeNodeChildren" t="ArrayList" />
                                     <o n="TypeNodeType" t="TypeNodeType">
                                       <v n="TypeClass" t="TypeClass">Reference</v>
-                                      <v n="QualifiedName">"POINTER TO BedienPanel"</v>
-                                      <v n="Name">"POINTER TO BedienPanel"</v>
+                                      <v n="QualifiedName">"POINTER TO ST_Panel"</v>
+                                      <v n="Name">"POINTER TO ST_Panel"</v>
                                     </o>
                                     <v n="TypeNodeName">"Panel"</v>
                                     <o n="TypeNodeAttributes" t="TypeNodeAttributes2">
@@ -1245,11 +1245,11 @@
                     </o>
                     <o>
                       <v n="Id">550940142L</v>
-                      <v n="Value">620</v>
+                      <v n="Value">530</v>
                     </o>
                     <o>
                       <v n="Id">1473355128L</v>
-                      <v n="Value">190</v>
+                      <v n="Value">192</v>
                     </o>
                     <o>
                       <v n="Id">493260384L</v>
@@ -1272,7 +1272,7 @@
                         <l n="TypeNodeChildren" t="ArrayList" cet="BasicTypeNode">
                           <o>
                             <v n="Flags">2L</v>
-                            <v n="BasicTypeNodeValue">"MAIN.Zusstandsautomaten.VisuPanel"</v>
+                            <v n="BasicTypeNodeValue">"MAIN.Visualisierung.VisuPanel"</v>
                             <v n="BasicTypeNodeAcceptsExpression">true</v>
                             <n n="BasicTypeNodeFastAccess" />
                             <a n="BasicTypeNodeEnumValues" et="String" />
@@ -1332,14 +1332,14 @@
                     </o>
                     <o>
                       <v n="Id">251473904L</v>
-                      <v n="Value">"MAIN.Zusstandsautomaten.VisuPanel"</v>
+                      <v n="Value">"MAIN.Visualisierung.VisuPanel"</v>
                     </o>
                   </l>
                 </o>
                 <v n="VisualElementName">"Frame"</v>
                 <v n="VisualElementTypeName">"VisuFbFrame"</v>
                 <v n="VisualElementIsRectangle">true</v>
-                <v n="VisualElementIdentifier">"GenElemInst_14"</v>
+                <v n="VisualElementIdentifier">"GenElemInst_16"</v>
                 <n n="VisualElementOfflinePaintCommands" />
                 <o n="VisualElementFrameInformation" t="VisualFrameInfo">
                   <l n="ContainedGuids" t="ArrayList" />
@@ -1349,11 +1349,11 @@
                   </a>
                 </o>
                 <d n="VisualElementInputActions" t="Hashtable" />
-                <v n="VisualElementIdentification">{cec6d73f-085c-449b-bfd1-796d7656da43}</v>
+                <v n="VisualElementIdentification">{0ba0e7bd-9c9b-49b2-bfce-6fe6753297fc}</v>
                 <v n="VisualElementOwningObjectGuid">{061e6f26-a4a7-436c-a180-de9e666e4536}</v>
                 <a n="LMGuids" et="Guid" />
                 <d n="SubElements" t="Hashtable" />
-                <v n="VisualElementId">0</v>
+                <v n="VisualElementId">10</v>
                 <l n="UserManagementAccessRights" t="ArrayList" />
               </o>
             </l>
@@ -1458,10 +1458,10 @@
               <d n="FbMethods" t="CaseInsensitiveHashtable_1" ckt="String" cvt="Guid">
                 <v>FB_Init</v>
                 <v>39d43cba-e085-410f-8b71-5466e3bc1b29</v>
-                <v>FB_Exit</v>
-                <v>55c2f06c-46c3-407e-8042-70d4279a269c</v>
                 <v>FB_Reinit</v>
                 <v>3d57faaa-a266-435b-86e1-99075b4edab8</v>
+                <v>FB_Exit</v>
+                <v>55c2f06c-46c3-407e-8042-70d4279a269c</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{e9067c6b-53f2-4d1a-ba7c-6b6c461ab642}</v>
@@ -1505,7 +1505,7 @@
             </o>
             <v n="DialogDut">{0961d89a-b307-4eb0-b6f2-a8f36cbdc12a}</v>
           </o>
-          <v n="LastUsedIdForIdentifier">14</v>
+          <v n="LastUsedIdForIdentifier">16</v>
           <o n="TextDocument" t="TextDocument">
             <a n="TextLines" cet="TextLine">
               <o>
@@ -1542,12 +1542,12 @@
             <d2 n="Size" ckt="Int32" cvt="VisualObjectSize">
               <v>0</v>
               <o>
-                <v n="Width">931</v>
+                <v n="Width">841</v>
                 <v n="Height">376</v>
               </o>
               <v>1</v>
               <o>
-                <v n="Width">931</v>
+                <v n="Width">841</v>
                 <v n="Height">376</v>
               </o>
             </d2>

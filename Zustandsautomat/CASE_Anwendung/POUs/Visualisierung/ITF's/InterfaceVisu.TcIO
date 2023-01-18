@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <Itf Name="InterfaceVisu" Id="{c3c1a429-7f31-4448-a16e-2db9f68dfc27}">
+    <Declaration><![CDATA[INTERFACE InterfaceVisu
+]]></Declaration>
+    <Method Name="ZustandsautomatAddVisu" Id="{0a9bc147-a9d0-48c0-896c-fc9990842c1f}">
+      <Declaration><![CDATA[METHOD ZustandsautomatAddVisu : BOOL
+VAR_INPUT
+	P_Panel						: POINTER TO ST_Panel;
+	Name						: STRING(255);
+END_VAR
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

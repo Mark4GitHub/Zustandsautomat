@@ -2,20 +2,23 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
   <POU Name="Zustandsautomat" Id="{06aab81e-e47c-4303-86d6-ad89b6118069}" SpecialFunc="None">
     <Declaration><![CDATA[{attribute 'reflection'} 
-FUNCTION_BLOCK Zustandsautomat IMPLEMENTS InterfaceVisuZustandsautomat
+FUNCTION_BLOCK Zustandsautomat
 VAR CONSTANT
 	MaxProducts	: UINT := 5;
 END_VAR
 VAR_INPUT
-	Panel			: REFERENCE TO ST_Panel;
+	Panel				: REFERENCE TO ST_Panel;
+	AddVisu				: InterfaceVisu;
+	ZustandsautomatName	: STRING(255);
+
 END_VAR
 VAR
-  State            : E_States;
-  Products         : UINT := MaxProducts;
-  trigButton         : R_TRIG;
-  trigInsertCoin     : R_TRIG;
-  trigTakeProduct    : R_TRIG;
-  trigTakeCoin       : R_TRIG;
+  State            		: E_States;
+  Products         		: UINT := MaxProducts;
+  trigButton         	: R_TRIG;
+  trigInsertCoin     	: R_TRIG;
+  trigTakeProduct    	: R_TRIG;
+  trigTakeCoin       	: R_TRIG;
 
 
 	NeuInit						: BOOL;
@@ -67,21 +70,15 @@ IF NOT NeuInit THEN
 	InstanzNameZustandsautomat := tempName;
 	Panel.InstanzName:=InstanzNameZustandsautomat;
 	
+	IF ADR(Panel) <> 0 THEN
+		AddVisu.ZustandsautomatAddVisu(	P_Panel:=ADR(Panel),
+										Name := ZustandsautomatName);
+	END_IF
+								
 	
 END_IF]]></ST>
       </Implementation>
     </Method>
-    <Property Name="Prop_Panel" Id="{847c6b85-cb6c-4e8f-82ff-35ee89a15574}">
-      <Declaration><![CDATA[PROPERTY Prop_Panel : Pointer to ST_Panel]]></Declaration>
-      <Get Name="Get" Id="{43275fb5-8acd-48eb-8656-43155b0901e4}">
-        <Declaration><![CDATA[VAR
-END_VAR
-]]></Declaration>
-        <Implementation>
-          <ST><![CDATA[Prop_Panel:=ADR(Panel);]]></ST>
-        </Implementation>
-      </Get>
-    </Property>
     <Method Name="stateMachine" Id="{60b1a753-bb52-4aa5-b91b-89874d07573b}">
       <Declaration><![CDATA[METHOD stateMachine : BOOL
 VAR_INPUT

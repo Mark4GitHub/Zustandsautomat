@@ -3,11 +3,31 @@
   <POU Name="MAIN" Id="{8ae3b7d7-24a5-400d-acc1-48a87b859bdb}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	Zusstandsautomaten	: ControlZustandsautomat;
+	Visualisierung		:Visu;
+	
+	Zustandsautomat1	: Zustandsautomat;
+	Panel1				: ST_Panel;
+	
+	Zustandsautomat2	: Zustandsautomat;
+	Panel2				: ST_Panel;
+	
+
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Zusstandsautomaten();]]></ST>
+      <ST><![CDATA[Visualisierung();
+
+Zustandsautomat1(
+	Panel					:= Panel1,
+	ZustandsautomatName 	:= 'Cola Automat',
+	AddVisu 					:= Visualisierung);
+	
+Zustandsautomat2(
+	Panel					:= Panel2,
+	ZustandsautomatName 	:= 'Fanta Automat',
+	AddVisu 					:= Visualisierung);
+
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
